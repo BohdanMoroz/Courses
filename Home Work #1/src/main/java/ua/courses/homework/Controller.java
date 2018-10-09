@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class Controller {
     public static final String HELLO = "Hello";
     public static final String WORLD = "world!";
+    public static final String EMPTY = "";
+    public static final String WHITESPACE = " ";
 
     private Model model;
     private View view;
@@ -25,6 +27,7 @@ public class Controller {
     }
 
     public String inputWordWithScanner (Scanner scanner, String requiredWord){
+        String inputResult;
         view.printMessage(View.INPUT_WORD + requiredWord);
 
         while (! scanner.hasNext(requiredWord)) {
@@ -32,6 +35,15 @@ public class Controller {
             scanner.next();
         }
 
-        return scanner.next();
+        if (model.getWordNumber() >= 1) {
+            inputResult = WHITESPACE + scanner.next();
+        } else {
+            inputResult = scanner.next();
+        }
+
+        model.incrementWordNumber();
+
+        return inputResult;
+
     }
 }
