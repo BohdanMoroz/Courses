@@ -4,21 +4,13 @@ public class Model {
     public static final String EMPTY = "";
 
     private String sentence = EMPTY;
-    private int wordNumber = 0;
-
-    public int getWordNumber() {
-        return wordNumber;
-    }
 
     public String getSentence() {
-        return sentence;
+        return sentence.trim();
     }
 
     public void addWordToSentence(String word) {
         sentence += word;
     }
 
-    public void incrementWordNumber() {
-        wordNumber++;
-    }
 }

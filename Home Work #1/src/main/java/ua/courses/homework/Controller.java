@@ -27,7 +27,7 @@ public class Controller {
     }
 
     public String inputWordWithScanner (Scanner scanner, String requiredWord){
-        String inputResult;
+
         view.printMessage(View.INPUT_WORD + requiredWord);
 
         while (! scanner.hasNext(requiredWord)) {
@@ -35,15 +35,6 @@ public class Controller {
             scanner.next();
         }
 
-        if (model.getWordNumber() >= 1) {
-            inputResult = WHITESPACE + scanner.next();
-        } else {
-            inputResult = scanner.next();
-        }
-
-        model.incrementWordNumber();
-
-        return inputResult;
-
+        return scanner.next() + WHITESPACE;
     }
 }
