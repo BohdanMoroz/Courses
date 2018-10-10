@@ -13,17 +13,57 @@ public class Controller {
 
     public void toControl(){
         Scanner scanner = new Scanner(System.in);
-        view.printMessage(View.RULES);
-
         int desiredValue = model.getDesiredValue();
 
+        view.printMessage(View.RULES);
+
+        int currentValue;
+
         while (!model.isWin()){
-            model.addAttemptToInputHistory(inputNumberWihScanner(scanner, desiredValue));
+            currentValue = inputNumberWihScanner(scanner);
+
+            if (validateInput(currentValue)) {
+                model.addAttemptToInputHistory(currentValue);
+                verifyCurrentValue(desiredValue, currentValue); //Change the name!
+            }
         }
 
+
+
+
+        scanner.close();
     }
 
-    private int inputNumberWihScanner(Scanner scanner, int desiredValue){
-        return 1;
+    private void verifyCurrentValue(int desiredValue, int currentValue) {
+        if ( currentValue == desiredValue) {
+            model.setWin(true);
+            view.printMessage(View.CONGRATULATION);
+        } else if (currentValue < desiredValue) {
+            model.setMinRangeValue(currentValue);
+            view.printMessage(View.INPUT_MORE);
+        } else if (currentValue > desiredValue) {
+            model.setMaxRangeValue(currentValue);
+            view.printMessage(View.INPUT_LESS);
+        }
+    }
+
+    private int inputNumberWihScanner(Scanner scanner){
+        view.printMessage(View.INPUT_NUMBER + View.RANGE_FROM + model.getMinRangeValue() + View.RANGE_TO + model.getMaxRangeValue() + View.RANGE_INCLUDE_NUMBER);
+        while (!scanner.hasNextInt()){
+            view.printMessage(View.WRONG_INPUT_SYMBOL);
+            view.printMessage(View.TRY_AGAIN);
+            scanner.nextInt();
+        }
+        return scanner.nextInt();
+    }
+
+    private boolean validateInput(int currentValue) {
+        if ( (currentValue >= model.getMinRangeValue()) && (currentValue <= model.getMaxRangeValue()) ) {
+            return true;
+        } else {
+            view.printMessage(View.OUT_OF_RANGE);
+            view.printMessage(View.TRY_AGAIN);
+            return false;
+        }
     }
 }

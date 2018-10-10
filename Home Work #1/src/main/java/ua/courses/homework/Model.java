@@ -1,7 +1,7 @@
 package ua.courses.homework;
 
 public class Model {
-    public static final String EMPTY = "";
+    private static final String EMPTY = "";
 
     private String sentence = EMPTY;
 

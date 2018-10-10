@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Model {
+public class    Model {
     private static final int DEFAULT_MAX_RANGE_VALUE = 100;
     private static final int DEFAULT_MIN_RANGE_VALUE = 0;
     private static final int INCLUDE_LAST_NUMBER = 1;
 
-    private int maxRangeValue;
-    private int minRangeValue;
+    private int maxRangeValue = DEFAULT_MAX_RANGE_VALUE;
+    private int minRangeValue = DEFAULT_MIN_RANGE_VALUE;
 
     private boolean isWin;
 
