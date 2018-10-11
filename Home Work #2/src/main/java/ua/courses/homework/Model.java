@@ -12,15 +12,34 @@ public class    Model {
     private int maxRangeValue = DEFAULT_MAX_RANGE_VALUE;
     private int minRangeValue = DEFAULT_MIN_RANGE_VALUE;
 
-    private boolean isWin;
+    private boolean isFinish;
 
-    public boolean isWin() {
-        return isWin;
+    public boolean isFinish() {
+        return isFinish;
     }
 
-    public void setWin(boolean win) {
-        isWin = win;
+    public void setFinish(boolean finish) {
+        isFinish = finish;
     }
+
+    //    private boolean isWin;
+//    private boolean isLose;
+//
+//    public boolean isLose() {
+//        return isLose;
+//    }
+//
+//    public void setLose(boolean lose) {
+//        isLose = lose;
+//    }
+//
+//    public boolean isWin() {
+//        return isWin;
+//    }
+//
+//    public void setWin(boolean win) {
+//        isWin = win;
+//    }
 
     private List<Integer> inputHistory = new ArrayList<>();
     private int desiredValue;
@@ -29,13 +48,14 @@ public class    Model {
     public void generateDesiredValue() {
         Random random = new Random();
         desiredValue = random.nextInt(DEFAULT_MAX_RANGE_VALUE + INCLUDE_LAST_NUMBER) + DEFAULT_MIN_RANGE_VALUE;
+//        desiredValue = 50;
     }
 
     public int getDesiredValue() {
         return desiredValue;
     }
 
-    public void addAttemptToInputHistory(int inputValue){
+    public void addToInputHistory(int inputValue){
         inputHistory.add(inputValue);
     }
 
