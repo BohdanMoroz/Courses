@@ -8,7 +8,7 @@ public class View {
             "то з кожною такою спробою границі діапазона будуть звужуватися.\n" +
             "Якщо загадане число більше введеного користувачем, то по нижній " +
             "границі, а якщо менше - по верхній.\n";
-    public static final String INPUT_NUMBER = "Будь ласка введіть чилсло, яке входить в";
+    public static final String INPUT_NUMBER = "Будь ласка введіть чилсло, яке входить в ";
     public static final String RANGE_FROM = "діапазон від ";
     public static final String RANGE_TO = " до ";
     public static final String RANGE_INCLUDE_NUMBER = " включно.";
@@ -18,8 +18,15 @@ public class View {
     public static final String INPUT_MORE = "Загадане число більше, ніж ";
     public static final String INPUT_LESS = "Загадане число менше, ніж ";
 
-    public static final String CONGRATULATION = "Вітаємо, Ви відгадали число ";
-    public static final String NUMBER_OF_ATTEMPTION = "Кількість спроб";
+    public static final String CONGRATULATION = "Вітаємо, Ви виграли!";
+    public static final String NUMBER_OF_ATTEMPTION = "Кількість введених чисел: ";
+    public static final String INPUT_HISTORY = "Було введено такі числа: ";
+    public static final String LOSE = "Ви програли!";
+    public static final String WHITESPACE = " ";
+
+    public void caretReturn() {
+        System.out.println("\n");
+    }
 
     public void printMessage(String message){
         System.out.println(message);
@@ -29,12 +36,12 @@ public class View {
         System.out.print(message);
     }
 
-    public void printMessageAndNumber(String message, int number){
-        System.out.println(message + number);
-    }
-
-    public void printMessageAndNumberWithoutCaretReturn(String message, int number){
-        System.out.print(message + number);
-    }
+//    public void printMessageAndNumber(String message, int number){
+//        System.out.println(message + number);
+//    }
+//
+//    public void printMessageAndNumberWithoutCaretReturn(String message, int number){
+//        System.out.print(message + number);
+//    }
 
 }
