@@ -31,6 +31,10 @@ public class Controller {
         this.view = view;
     }
 
+    private void inputNote(){
+
+    }
+
     public void execute(){
         Scanner scanner = new Scanner(System.in);
 

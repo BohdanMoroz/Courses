@@ -1,5 +1,7 @@
 package ua.courses.homework.Model.Entity;
 
+import java.util.Objects;
+
 public class Note {
     private String surname;
     private String name;
@@ -18,6 +20,24 @@ public class Note {
     private String adressFull; // auto generate
     private String noteDate;
     private String lastModifyDate;
+
+//    public Note(){
+////
+////    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Note note = (Note) o;
+        return Objects.equals(nickname, note.nickname);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nickname);
+    }
 
     public String getSurname() {
         return surname;
