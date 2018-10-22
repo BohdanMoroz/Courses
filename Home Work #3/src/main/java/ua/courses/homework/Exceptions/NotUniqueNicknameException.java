@@ -1,4 +1,4 @@
-package ua.courses.homework.Model.Entity;
+package ua.courses.homework.Exceptions;
 
 public class NotUniqueNicknameException extends RuntimeException {
     public NotUniqueNicknameException(){

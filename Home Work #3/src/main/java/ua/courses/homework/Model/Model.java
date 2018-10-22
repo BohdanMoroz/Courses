@@ -1,12 +1,10 @@
 package ua.courses.homework.Model;
 
-import ua.courses.homework.Model.Entity.NotUniqueNicknameException;
+import ua.courses.homework.Exceptions.NotUniqueNicknameException;
 import ua.courses.homework.Model.Entity.Note;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class Model {
     List<Note> notebook = new ArrayList<>();
@@ -17,6 +15,7 @@ public class Model {
 
     public void addNote(Note note){
         checkNickname(note);
+        System.out.println("Done");
         notebook.add(note);
     }
 
