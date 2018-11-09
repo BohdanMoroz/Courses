@@ -15,12 +15,11 @@ public class Model {
 
     public void addNote(Note note){
         checkNickname(note);
-        System.out.println("Done");
         notebook.add(note);
     }
 
     private void checkNickname(Note note) {
-        if (notebook.indexOf(note) == -1) {
+        if (notebook.indexOf(note) != -1) {
             throw new NotUniqueNicknameException();
         }
     }

@@ -3,6 +3,7 @@ package ua.courses.homework.Controller;
 import ua.courses.homework.Model.Entity.Groups;
 import ua.courses.homework.Model.Entity.Note;
 import ua.courses.homework.Model.Model;
+import ua.courses.homework.View.TextConstant;
 import ua.courses.homework.View.View;
 
 import java.util.Scanner;
@@ -19,31 +20,17 @@ public class Controller {
     }
 
     public void execute() {
+        view.printMessage(TextConstant.GREETING);
         Scanner scanner = new Scanner(System.in);
 
         Note tempNote = fillTheNote(new Note(), scanner);
         addNote(scanner, tempNote);
+        view.printMessage(TextConstant.INFO + tempNote.getNickname());
         scanner.close();
     }
 
     private Note fillTheNote(Note tempNote, Scanner scanner) {
-//        tempNote.setSurname(inputValidValue(scanner, REGEX_PHONE_MOBILE));
-//        tempNote.setName(inputValidValue(scanner, REGEX_NAME));
-//        tempNote.setLastName(inputValidValue(scanner, REGEX_NAME));
-//        tempNote.setInitials(generateInitials(tempNote.getSurname(), tempNote.getName()));
         tempNote.setNickname(inputValidValue(scanner, REGEX_NICKNAME));
-//        tempNote.setComment(inputValidValue(scanner, REGEX_COMMENT));
-//        tempNote.setGroup(Groups.COWORKERS.toString());
-//        tempNote.setHomePhoneNumber(inputValidValue(scanner, REGEX_NAME));
-//        tempNote.setMobPhoneNumber(inputValidValue(scanner, REGEX_NAME));
-//        tempNote.setMobPhoneNumberAdditional(inputValidValue(scanner, REGEX_NAME));
-//        tempNote.setMail(inputValidValue(scanner, REGEX_NAME));
-//        tempNote.setSkype(inputValidValue(scanner, REGEX_NAME));
-//        tempNote.setIndex(inputValidValue(scanner, REGEX_NAME));
-//        tempNote.setCity(inputValidValue(scanner, REGEX_NAME));
-//        tempNote.setStreet(inputValidValue(scanner, REGEX_NAME));
-//        tempNote.setBuildingNumber(inputValidValue(scanner, REGEX_NAME));
-//        tempNote.setFlatNumber(inputValidValue(scanner, REGEX_NAME));
         return tempNote;
     }
 
@@ -69,10 +56,11 @@ public class Controller {
     }
 
     public String inputValidValue(Scanner scanner, String regex) {
+        view.printMessage(TextConstant.INPUT_NICKNAME);
         String res;
 
         while (!(scanner.hasNext() && (res = scanner.next()).matches(regex))) {
-//            view.printWrongStringInput(message);
+            view.printMessage(TextConstant.WRONG_SYMBOL);
         }
 
         return res;
